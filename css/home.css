@@ -1,0 +1,36 @@
+#homeimg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+body {
+    background: transparent;
+    padding: 20px;
+}
+
+.homelogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 40px;
+}
+
+h2 {
+  font-family: Copperplate;
+  font-size: 83px;
+  color: rgb(199, 96, 49);
+
+}
+
+
+
+
+
+
+
