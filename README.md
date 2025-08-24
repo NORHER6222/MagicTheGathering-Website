@@ -29,7 +29,7 @@ This is a PHP/MySQL web application to manage Magic: The Gathering card collecti
 4. **Log In**  
    Go to http://localhost/mtg-website/
 
-   Use one of the demo accounts:  
+   Use one of the demo accounts (username/password):  
    - user1 / user1 (Good for a quick demo)
    - user2 / user2  
    - up to user10 / user10  

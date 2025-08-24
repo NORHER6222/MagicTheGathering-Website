@@ -4,26 +4,33 @@ require '../includes/db.php';
 ?>
 <!DOCTYPE html>
 <html>
+     <video autoplay loop muted playsinline class="back-video">
+                <source src="../videos/friendspage.mp4" type="video/mp4">
+                 Browser does not support video
+     </video>
 <head>
     <title>Friends</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/friends.css">
     <style>
         .box-section {
-            margin: 10px 0;
+            color: white;
+            margin: 50px 0;
             padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ccc;
+            background: transparent;
+            border: 1px solid #000000ff;
             border-radius: 6px;
             max-height: 300px;
             overflow-y: auto;
         }
         .friend-entry, .user-entry {
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 6px 10px;
-            background: #fff;
-            border: 1px solid #ddd;
+            background: black;
+            opacity: 50%;
+            border: 1px solid #68c753ff;
             border-radius: 4px;
             margin-bottom: 5px;
         }
@@ -92,14 +99,18 @@ require '../includes/db.php';
 <body>
 <?php include '../includes/nav.php'; ?>
 
-<h2>Your Friends</h2>
-<input type="text" id="friendSearch" placeholder="Search friends...">
-<div class="box-section" id="friends-results">
-    <!-- Current friends loaded via AJAX -->
+<div>
+    <a href="home.php"><img class="logo" src="../img/mtgmanager.png" alt=""></a>
 </div>
 
-<h2>Add a Friend</h2>
-<input type="text" id="userSearch" placeholder="Search users to add...">
+<h2>Your Friends</h2>
+<input type="text" id="friendSearch" placeholder="Search Friends...">
+<div class="box-section" id="friends-results">
+    
+</div>
+
+<h2>Add A Friend</h2>
+<input type="text" id="userSearch" placeholder="Search Users To Add...">
 <div class="box-section" id="users-results">
 <?php
 $current = $_SESSION['username'];

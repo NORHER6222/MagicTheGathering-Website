@@ -24,11 +24,13 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['avatar'])) {
 ?>
 <!DOCTYPE html>
 <html>
+
+     <link rel="stylesheet" href="../css/profile.css">
 <head>
     <title>Your Profile</title>
-    <link rel="stylesheet" href="../css/style.css">
+    
     <style>
-        .avatar-scroll { display:flex; gap:12px; overflow-x:auto; padding:10px; border:1px solid #ddd; border-radius:10px; scroll-snap-type:x mandatory; }
+        .avatar-scroll { display:flex; gap:50px; overflow-x:auto; padding:10px; border:5px solid; background-color: black; #ee6217ff; border-radius:10px; scroll-snap-type:x mandatory; }
         .avatar-scroll::-webkit-scrollbar { height:10px; }
         .avatar-scroll::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:10px; }
         .avatar-item { scroll-snap-align:center; display:flex; align-items:center; justify-content:center; border:2px solid transparent; border-radius:50%; padding:4px; }
@@ -41,12 +43,17 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['avatar'])) {
 <body>
 <?php include '../includes/nav.php'; ?>
 
-<h2>Your Profile</h2>
-<p>Signed in as <strong><?= htmlspecialchars($me['username']) ?></strong></p>
+<div>
+    <a href="home.php"><img class="logo" src="../img/mtgmanager.png" alt=""></a>
+</div>
+
+<h3>Your Profile</h3>
+<p>Signed In As <strong><?= htmlspecialchars($me['username']) ?></strong></p>
 <?php if (!empty($msg)): ?><p style="color:green;"><?= htmlspecialchars($msg) ?></p><?php endif; ?>
 
+    <h3>Choose An Avatar</h3>
 <form method="post">
-    <h3>Choose an avatar</h3>
+    
     <div class="avatar-scroll" id="avatarScroll">
         <?php
         $avatars = glob(__DIR__ . '/../img/avatars/*.{svg,png}', GLOB_BRACE);
@@ -60,15 +67,22 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['avatar'])) {
             echo '</label>';
         }
         ?>
+         
     </div>
-    <div class="controls">
-        <button type="submit">Save</button>
-    </div>
+        
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    
 </form>
 
-<div>
-    <h3>Change Password<h3>
+        
+    
 
+<h3>Change Password</h3>
+
+<div id="chpassword">
+      
             <form action="chpassword.php" method="POST">
                 <div class="pass-ch">
                     <label for="username">Username</label>
@@ -90,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['avatar'])) {
                     <input type="password" id="conf-password" name="conf-password" required>
                 </div>
                 <button type="submit" id="ChangePass">Change Password</button>
-            </form>    
-        
+            </form>  
+             
 </div>
 
 <script>

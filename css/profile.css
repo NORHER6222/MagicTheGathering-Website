@@ -1,0 +1,45 @@
+
+html {
+  background-image: url('../img/inventoryback.png');
+  background-size: cover;
+  text-align: center;
+}
+
+ .logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;      
+ }
+
+#chpassword {
+  display: block;
+  text-align: center;
+  width: 800px;
+  border: 5px solid rgb(255, 204, 102);
+  padding: 50px;
+  margin: 20px auto;
+  color: white !important;
+  opacity: 70%;
+  background-color: black;
+  font-size: 20px;
+}
+
+h3 {
+  display: block;
+  text-align: center;
+  width: 250px;
+  border: 2px solid rgb(255, 204, 102);
+  padding: 10px;
+  margin: 20px auto;
+  color: white !important;
+  opacity: 70%;
+  background-color: black;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+}

@@ -1,66 +1,49 @@
 <?php
-require '../includes/auth.php';
-require_once '../includes/db.php';
+if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/db.php';
 
-if($_SERVER['REQUEST_METHOD']!=='POST'){ http_response_code(405); exit; }
+$deck_id = isset($_POST['deck_id']) ? (int)$_POST['deck_id'] : 0;
+$inventory_id = isset($_POST['inventory_id']) ? (int)$_POST['inventory_id'] : 0;
+$qty = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 0;
+if ($deck_id <= 0 || $inventory_id <= 0 || $qty <= 0) { header('Location: inventory.php'); exit; }
 
-$deck_id = intval($_POST['deck_id'] ?? 0);
-$inventory_id = intval($_POST['inventory_id'] ?? 0);
-$qty = max(1, intval($_POST['quantity'] ?? 1));
-
-$user = $_SESSION['username'] ?? null;
-$stmt = $conn->prepare("SELECT id FROM users WHERE username=?");
-$stmt->bind_param("s",$user);
+$username = $_SESSION['username'];
+$stmt = $conn->prepare('SELECT id FROM users WHERE username=? LIMIT 1');
+$stmt->bind_param('s', $username);
 $stmt->execute();
-$uid = $stmt->get_result()->fetch_assoc()['id'];
+$stmt->bind_result($user_id);
+$stmt->fetch();
+$stmt->close();
 
-// ensure deck belongs to user
-$ownDeck = $conn->prepare("SELECT id FROM decks WHERE id=? AND user_id=?");
-$ownDeck->bind_param("ii",$deck_id,$uid);
-$ownDeck->execute();
-if(!$ownDeck->get_result()->fetch_assoc()){ http_response_code(403); echo "forbidden"; exit; }
-
-// ensure inventory belongs to user
-$ownInv = $conn->prepare("SELECT id FROM inventory WHERE id=? AND user_id=?");
-$ownInv->bind_param("ii",$inventory_id,$uid);
-$ownInv->execute();
-if(!$ownInv->get_result()->fetch_assoc()){ http_response_code(403); echo "forbidden"; exit; }
+$stmt = $conn->prepare('SELECT 1 FROM decks WHERE id = ? AND user_id = ?');
+$stmt->bind_param('ii', $deck_id, $user_id);
+$stmt->execute();
+$has_deck = $stmt->fetch();
+$stmt->close();
+if (!$has_deck) { header('Location: inventory.php'); exit; }
 
 $conn->begin_transaction();
-
 try {
-    // check deck_cards quantity
-    $sel = $conn->prepare("SELECT id, quantity FROM deck_cards WHERE deck_id=? AND inventory_id=? FOR UPDATE");
-    $sel->bind_param("ii",$deck_id,$inventory_id);
-    $sel->execute();
-    $row = $sel->get_result()->fetch_assoc();
-    if(!$row || (int)$row['quantity'] < $qty){
-        $conn->rollback();
-        http_response_code(400);
-        echo "insufficient_deck_quantity";
-        exit;
-    }
+  $stmt = $conn->prepare('UPDATE deck_cards SET quantity = quantity - ? WHERE deck_id = ? AND inventory_id = ? AND quantity >= ?');
+  $stmt->bind_param('iiii', $qty, $deck_id, $inventory_id, $qty);
+  $stmt->execute();
+  if ($stmt->affected_rows !== 1) { throw new Exception('deck-update-failed'); }
+  $stmt->close();
 
-    $remaining = (int)$row['quantity'] - $qty;
-    if($remaining > 0){
-        $upd = $conn->prepare("UPDATE deck_cards SET quantity=? WHERE id=?");
-        $upd->bind_param("ii",$remaining,$row['id']);
-        $upd->execute();
-    } else {
-        $del = $conn->prepare("DELETE FROM deck_cards WHERE id=?");
-        $del->bind_param("i",$row['id']);
-        $del->execute();
-    }
+  $stmt = $conn->prepare('DELETE FROM deck_cards WHERE deck_id = ? AND inventory_id = ? AND quantity <= 0');
+  $stmt->bind_param('ii', $deck_id, $inventory_id);
+  $stmt->execute();
+  $stmt->close();
 
-    // add back to inventory
-    $updInv = $conn->prepare("UPDATE inventory SET quantity = quantity + ? WHERE id = ? AND user_id = ?");
-    $updInv->bind_param("iii",$qty,$inventory_id,$uid);
-    $updInv->execute();
+  $stmt = $conn->prepare('UPDATE inventory SET quantity = quantity + ? WHERE id = ? AND user_id = ?');
+  $stmt->bind_param('iii', $qty, $inventory_id, $user_id);
+  $stmt->execute();
+  if ($stmt->affected_rows !== 1) { throw new Exception('inv-update-failed'); }
+  $stmt->close();
 
-    $conn->commit();
-    header('Location: view_deck.php?id=' . $deck_id); exit;
+  $conn->commit();
 } catch (Exception $e) {
-    $conn->rollback();
-    http_response_code(500);
-    echo "error";
+  $conn->rollback();
 }
+header('Location: view_deck.php?id=' . $deck_id);

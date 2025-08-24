@@ -1,0 +1,52 @@
+.back-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+html {
+  text-align: center;
+}
+
+ .logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;      
+ }
+
+ h1 {
+  font-size: 85px;
+  color: rgb(255, 204, 102);
+  text-align: center;
+ }
+ 
+ p {
+  display: block;
+  text-align: center;
+  width: 800px;
+  border: 5px dotted rgb(255, 204, 102);
+  padding: 50px;
+  margin: 20px auto;
+  color: white !important;
+  opacity: 70%;
+  background-color: black;
+  font-size: 20px;
+ }
+ 
+ #featuresbox {
+  display: block;
+  text-align: center;
+  width: 800px;
+  border: 5px dashed green;
+  padding: 50px;
+  margin: 20px auto;
+  color: white !important;
+  opacity: 70%;
+  background-color: black;
+ }
+

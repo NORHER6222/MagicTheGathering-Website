@@ -3,15 +3,28 @@ require '../includes/auth.php';
 ?>
 <!DOCTYPE html>
 <html>
+    
+    <video autoplay loop muted playsinline class="back-video">
+                <source src="../videos/friendspage.mp4" type="video/mp4">
+                 Browser does not support video
+     </video>
+
 <head>
     <title>Help</title>
-    <link rel="stylesheet" href="../css/style.css">
+    
 </head>
 <body>
 <?php include '../includes/nav.php'; ?>
 
-<h2>Help & Documentation</h2>
+<link rel="stylesheet" href="../css/help.css">
+
+
+    <a href="home.php"><img class="logo" src="../img/mtgmanager.png" alt=""></a>
+
+
+<h1>Help & Documentation</h1>
 <p>Welcome to the Magic: The Gathering Collection Manager. Here’s how to use the features:</p>
+<div id="featuresbox">
 <ul>
     <li><strong>Home:</strong> Quick dashboard showing your first 5 friends and first 5 cards.</li>
     <li><strong>Inventory:</strong> Add new cards with quantities, view your collection in a scrollable list, filter by name, and remove entries.</li>
@@ -23,5 +36,6 @@ require '../includes/auth.php';
     <li><strong>Add Any MTG Card:</strong> Use the Scryfall search box on the Inventory page to search the entire MTG library and add cards directly to your collection.</li>
     <li><strong>Your Profile:</strong> Pick a profile icon on the Profile page; it will appear across the app.</li>
 </ul>
+</div>
 </body>
 </html>

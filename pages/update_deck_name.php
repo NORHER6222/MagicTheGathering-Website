@@ -1,26 +1,23 @@
 <?php
-require '../includes/auth.php';
-require_once '../includes/db.php';
+if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/db.php';
 
-if($_SERVER['REQUEST_METHOD']!=='POST'){ http_response_code(405); exit; }
+$deck_id = isset($_POST['deck_id']) ? (int)$_POST['deck_id'] : 0;
+$name = isset($_POST['name']) ? trim($_POST['name']) : '';
+if ($deck_id <= 0 || $name === '') { header('Location: inventory.php'); exit; }
 
-$deck_id = intval($_POST['deck_id'] ?? 0);
-$new_name = trim($_POST['name'] ?? '');
-if($deck_id<=0 || $new_name===''){ http_response_code(400); echo "invalid"; exit; }
-
-$user = $_SESSION['username'] ?? null;
-$stmt = $conn->prepare("SELECT id FROM users WHERE username=?");
-$stmt->bind_param("s",$user);
+$username = $_SESSION['username'];
+$stmt = $conn->prepare('SELECT id FROM users WHERE username = ? LIMIT 1');
+$stmt->bind_param('s', $username);
 $stmt->execute();
-$uid = $stmt->get_result()->fetch_assoc()['id'];
+$stmt->bind_result($user_id);
+$stmt->fetch();
+$stmt->close();
 
-$ownDeck = $conn->prepare("SELECT id FROM decks WHERE id=? AND user_id=?");
-$ownDeck->bind_param("ii",$deck_id,$uid);
-$ownDeck->execute();
-if(!$ownDeck->get_result()->fetch_assoc()){ http_response_code(403); echo "forbidden"; exit; }
+$stmt = $conn->prepare('UPDATE decks SET name = ? WHERE id = ? AND user_id = ?');
+$stmt->bind_param('sii', $name, $deck_id, $user_id);
+$stmt->execute();
+$stmt->close();
 
-$upd = $conn->prepare("UPDATE decks SET name=? WHERE id=?");
-$upd->bind_param("si",$new_name,$deck_id);
-$upd->execute();
-echo "ok";
-?>
+header('Location: view_deck.php?id=' . $deck_id);

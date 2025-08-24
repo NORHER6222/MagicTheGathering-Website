@@ -1,0 +1,39 @@
+html {
+  background-image: url('../img/inventoryback.png');
+  background-size: cover;
+  text-align: center;
+}
+
+h2 {
+  color: rgb(255, 204, 102);
+ }
+
+ h3 {
+  color: rgb(255, 255, 255);
+ }
+
+ .section {
+  color: rgb(255, 255, 255);
+ }
+
+.inventorydiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;            
+ }
+
+ th, tbody, tr {
+  color: white;
+ }
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;      
+ }
+
+ table {
+  margin-left: auto;
+  margin-right: auto;
+ }
