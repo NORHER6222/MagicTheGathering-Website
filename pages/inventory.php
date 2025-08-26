@@ -9,7 +9,6 @@ require_once __DIR__ . '/../includes/auth.php';
 <head>
 <meta charset="utf-8">
 <title>Inventory</title>
-<link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="../css/inventory.css">
 </head>
 <body>

@@ -20,20 +20,20 @@
 
     const typeSel = h('select', { id:'sfType' },
       h('option', { value:'' }, 'Any Type'),
-      ...['creature','instant','sorcery','artifact','enchantment','planeswalker','land']
+      ...['CREATURE','INSTANT','SORCERY','ARTIFACT','ENCHANTMENT','PLANESWALKER','LAND']
         .map(o=>h('option', { value:o }, o))
     );
     const colorsSel = h('select', { id:'sfColors', multiple:'' },
-      h('option', { value:'w' }, 'White'),
-      h('option', { value:'u' }, 'Blue'),
-      h('option', { value:'b' }, 'Black'),
-      h('option', { value:'r' }, 'Red'),
-      h('option', { value:'g' }, 'Green'),
-      h('option', { value:'c' }, 'Colorless')
+      h('option', { value:'w' }, 'WHITE'),
+      h('option', { value:'u' }, 'BLUE'),
+      h('option', { value:'b' }, 'BLACK'),
+      h('option', { value:'r' }, 'RED'),
+      h('option', { value:'g' }, 'GREEN'),
+      h('option', { value:'c' }, 'COLORLESS')
     );
     const raritySel = h('select', { id:'sfRarity' },
       h('option', { value:'' }, 'Any Rarity'),
-      ...['common','uncommon','rare','mythic'].map(o=>h('option', { value:o }, o))
+      ...['COMMON','UNCOMMON','RARE','MYTHIC'].map(o=>h('option', { value:o }, o))
     );
     const yearInput = h('input', { id:'sfYear', type:'number', min:'1993', max:'2099', placeholder:'Year' });
     const freeText  = h('input', { id:'sfFree', type:'text', placeholder:'Free-text (name, set, etc.)', style:'flex:1 1 200px' });
@@ -78,20 +78,40 @@
     }
     return box;
   }
+
   function render(cards){
     const box = ensureResultsContainer();
     box.innerHTML = '';
     cards.forEach(card=>{
-      const img = (card.image_uris && card.image_uris.small) ? h('img', { src:card.image_uris.small, alt:'' }) : h('div');
-      const qty = h('input', { type:'number', min:'1', value:'1', style:'width:60px;margin:0 8px' });
-      const add = h('button', { type:'button' }, 'Add');
-      const row = document.createElement('div');
-      row.className = 'result-row';
-      row.append(img, 
-        (()=>{ const m=document.createElement('div'); m.style.flex='1'; 
-                const n=document.createElement('div'); n.style.fontWeight='600'; n.textContent=card.name||'Unknown';
-                const s=document.createElement('div'); s.style.fontSize='12px'; s.style.opacity='0.8'; s.textContent=(card.set_name||'').toUpperCase();
-                m.append(n,s); return m; })(),
+      const img = (card.image_uris && card.image_uris.normal) 
+      ? h('img', { 
+          src: card.image_uris.large, 
+          alt: card.name || '',
+          style: 'width: 200px; height: auto;'
+        }) 
+      : h('div', { style: 'width: 100px; height: 140px; border: 2px solid #B0B0B0;' });
+    const qty = h('input', { type: 'number', min: '1', value: '1', style: 'width:60px;margin:0 8px' });
+    const add = h('button', { type: 'button' }, 'Add');
+    const row = document.createElement('div');
+    row.className = 'result-row';
+    row.append(img, 
+      (() => { 
+        const m = document.createElement('div'); 
+        m.style.flex = '1'; 
+        const n = document.createElement('div'); 
+        n.style.fontSize = '30px'; 
+        n.style.color = 'blueviolet';
+        n.style.paddingTop = '30px';
+        n.textContent = card.name || 'Unknown';
+        const s = document.createElement('div'); 
+        s.style.fontSize = '12px'; 
+        s.style.color = 'rgb(235, 91, 8)'; 
+        s.style.opacity = '0.8'; 
+        s.style.paddingBottom = '30px';
+        s.textContent = (card.set_name || '').toUpperCase();
+        m.append(n, s); 
+        return m; 
+      })(),
         qty, add);
       add.addEventListener('click', function(){
         const q = parseInt(qty.value,10) || 1;
@@ -103,6 +123,7 @@
         .catch(()=>alert('Network error'));
       });
       box.appendChild(row);
+      
     });
   }
   function runSearch(){

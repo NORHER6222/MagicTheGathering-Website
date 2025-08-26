@@ -26,7 +26,11 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
     <a href="home.php"><img class="logo" src="../img/mtgmanager.png" alt=""></a>
 </div>
 
+<div><h1 class="welc">Welcome To The New Home Of<br> <strong>Collecting</strong> & <strong>Deck-Building</strong></h1>
+</div>
+<p class="powered">POWERED BY: <strong><span class="KNJ">KNJ SOLUTIONS</span></strong></p>
 
+<!--
 <div class="">
 
     <h3>FRIENDS</h3>
@@ -41,7 +45,7 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
     </div>
     
     
-    <!--<h3>INVENTORY</h3>
+    <h3>INVENTORY</h3>
         <div class="box-section">
 
         <?php
@@ -80,28 +84,28 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
 <section class="homeDecks">
         
         <div class="inline-block">
-        <figure> <img src="../img/angelCom.png" alt=""><figcaption>Angel Commander Deck: "Celestial Vanguard"</figcaption> </figure>
+        <figure> <img src="../img/angelCom.png" alt=""><figcaption>Angel Commander Deck: <span class="highlightedFont">"Celestial Vanguard"<span></figcaption> </figure>
         </div>
         
 
         <div class="inline-block">    
-        <figure> <img src="../img/deck2.png" alt=""><figcaption>Wolf Commander Deck: "Savage Inferno"</figcaption> </figure>
+        <figure> <img src="../img/deck2.png" alt=""><figcaption>Wolf Commander Deck: <span class="highlightedFont">"Savage Inferno"</span></figcaption> </figure>
         </div>
 
         <div class="inline-block">    
-        <figure> <img src="../img/deck3.png" alt=""><figcaption>Dragon Commander Deck: "Draconic Dominion"</figcaption> </figure>
+        <figure> <img src="../img/deck3.png" alt=""><figcaption>Dragon Commander Deck: <span class="highlightedFont">"Draconic Dominion"<span></figcaption> </figure>
         </div>
 
         <div class="inline-block">
-        <figure> <img src="../img/deck4.png" alt=""><figcaption>Warrior Commander Deck: "Highland Legion"</figcaption> </figure>
+        <figure> <img src="../img/deck4.png" alt=""><figcaption>Warrior Commander Deck: <span class="highlightedFont">"Highland Legion"</span></figcaption> </figure>
         </div>
 
         <div class="inline-block">
-        <figure> <img src="../img/deck5.png" alt=""><figcaption>Dark Necromancer Deck: "Shadowed Resurrection"</figcaption> </figure>
+        <figure> <img src="../img/deck5.png" alt=""><figcaption>Dark Necromancer Deck: <span class="highlightedFont">"Shadowed Resurrection"</span></figcaption> </figure>
         </div>
 
         <div class="inline-block">
-        <figure> <img src="../img/deck6.png" alt=""><figcaption>Amonkhet Deck: "Pharaoh's Eternal Glory"</figcaption> </figure>
+        <figure> <img src="../img/deck6.png" alt=""><figcaption>Amonkhet Deck: <span class="highlightedFont">"Pharaoh's Eternal Glory"</span></figcaption> </figure>
         </div>
 
         
@@ -109,7 +113,7 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
 <button class="homeDecksBtn">Explore More Decks</button>
 <section class="homeFriends">
 
-        <h4 class="sec2">Find Creators, Collectors & Friends<h4>
+        <h4 class="sec2">Find <span class="highlightedFontFriends">Creators</span>, <span class="highlightedFontFriends">Collectors</span> & <span class="highlightedFontFriends">Friends</span><h4>
             
         <p>Explore the community's top collectors or friends near you!</p><br><br>
 
@@ -157,7 +161,7 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
 <section class="homeSupport">
       
         <h4 class="sec2">Support Us<h4>
-        <p>Support Our Pateron & Join Our Discord Server</p>
+        <p>Support Our <span style="color:red;">Patreon</span> & Join Our <span style="color:blueviolet;">Discord</span> Server</p>
 
                 <div class="inline-block-supportus">
                     <img src="../img/patreon.png" alt="">
