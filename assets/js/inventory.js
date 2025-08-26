@@ -116,7 +116,7 @@
 
     // decks
     deckSel.innerHTML = '';
-    const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='Select deck'; deckSel.appendChild(opt0);
+    const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='Select Deck'; deckSel.appendChild(opt0);
     decks.forEach(d=>{ const o=document.createElement('option'); o.value=d.id; o.textContent=d.name; deckSel.appendChild(o); });
 
     // image
@@ -128,7 +128,7 @@
     confirmBtn.onclick = function(){
       const deckId = deckSel.value;
       const mvQty = parseInt(qtyEl.value,10)||1;
-      if(!deckId){ alert('Please choose a deck'); return; }
+      if(!deckId){ alert('Please Choose A Deck'); return; }
       jsonFetch(EP.transferToDeck, {method:'POST', body: JSON.stringify({inventory_id:rowData.id, deck_id:deckId, quantity:mvQty})})
         .then(res=>{
           if(res && res.ok){
@@ -197,7 +197,7 @@
 
       // Assign button (opens modal)
       const cAssign = document.createElement('td');
-      const btn = document.createElement('button'); btn.textContent='Assign to deck';
+      const btn = document.createElement('button'); btn.textContent='Assign To Deck';
       btn.addEventListener('click', ()=> openAssignModal({id, name}, inp));
       cAssign.appendChild(btn);
       tr.appendChild(cAssign);
@@ -206,7 +206,7 @@
       const cAct = document.createElement('td');
       const del = document.createElement('button'); del.textContent='Delete';
       del.addEventListener('click', function(){
-        if(!confirm('Delete this card from your inventory?')) return;
+        if(!confirm('Delete This Card From Your Inventory?')) return;
         formFetch(EP.removeCard, {card_id:id}).then(res=>{
           if(res && res.ok !== false){ tr.remove(); }
           else { alert('Delete failed'); }
@@ -222,10 +222,10 @@
   function init(){
     $("#createDeckBtn")?.addEventListener('click', function(){
       const name = ($("#newDeckName").value || "").trim();
-      if(!name){ alert('Enter a deck name'); return; }
+      if(!name){ alert('Enter A Deck Name'); return; }
       jsonFetch(EP.createDeck, {method:'POST', body: JSON.stringify({name})}).then(res=>{
         if(res && res.ok){ $("#newDeckName").value=''; loadDecks(); }
-        else { alert(res && res.error ? res.error : 'Create deck failed'); }
+        else { alert(res && res.error ? res.error : 'Create Deck Failed'); }
       });
     });
     // Load all data, then render

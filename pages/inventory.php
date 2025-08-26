@@ -22,7 +22,7 @@ require_once __DIR__ . '/../includes/auth.php';
 
 <p><a href="search_cards.php">Add Any MTG Card (Scryfall)</a></p>
 
-<h2>Your Inventory</h2>
+<h2>YOUR INVENTORY</h2>
 <div id="inv-root">
   <table id="inv-table" border="1" cellpadding="4" cellspacing="0">
     <thead>
@@ -34,10 +34,10 @@ require_once __DIR__ . '/../includes/auth.php';
   </table>
 </div>
 
-<h2>Decks</h2>
+<h2>DECKS</h2>
 <div id="decks-root">
   <div style="margin:6px 0;">
-    <input id="newDeckName" placeholder="New deck name">
+    <input id="newDeckName" placeholder="New Deck Name">
     <button id="createDeckBtn">Create</button>
   </div>
   <ul id="deckList"></ul>

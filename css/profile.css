@@ -57,3 +57,8 @@ p {
   margin: auto;
   font-size: 17px;
 }
+
+a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}

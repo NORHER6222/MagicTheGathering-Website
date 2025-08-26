@@ -29,8 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <!-- 
                             Work In Progress
+          
             <audio source src="audio/indexaudio.mp3" autoplay controls>
             </audio>
+            
             -->
             <link rel="stylesheet" href="css/index.css"> 
 <head><title>MTG Login</title></head>
@@ -40,14 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <style>
     h2 {
-  
-        text-align: center;
+    text-align: center;
     color: rgb(181, 182, 183);
     font-size: 700%;
 
 }
+
     #C{
-      
     width: 152em;
     color: rgba(185, 181, 181, 1);
 }

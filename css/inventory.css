@@ -5,6 +5,12 @@ html {
 }
 
 h2 {
+  display: block;
+  text-align: center;
+  background-color: #1a1a1a;
+  width: 250px;
+  opacity: 80%;
+  margin: 50px auto;
   color: rgb(255, 204, 102);
  }
 
@@ -36,6 +42,8 @@ h2 {
  table {
   margin-left: auto;
   margin-right: auto;
+  opacity: 90%;
+  background-color: #1a1a1a;
  }
 
 
@@ -51,4 +59,9 @@ h2 {
   padding-bottom: 50px;
   margin: auto;
   color: white;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
 }

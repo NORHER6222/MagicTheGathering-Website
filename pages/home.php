@@ -39,17 +39,19 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
         <div class="entry"><a href="view_inventory.php?user=<?php echo urlencode($name); ?>"><?php echo $name; ?></a></div>
     <?php endwhile; ?>
     </div>
-    <h3>INVENTORY</h3>
-    <div class="box-section">
+    
+    
+    <!--<h3>INVENTORY</h3>
+        <div class="box-section">
 
-    <?php
-    $iRes = $conn->query("SELECT card_name, quantity FROM inventory WHERE user_id=$user_id ORDER BY card_name LIMIT 5");
-    while ($i = $iRes->fetch_assoc()):
-    ?>
-    <div class="entry"><?php echo htmlspecialchars($i['card_name']); ?> (x<?php echo intval($i['quantity']); ?>)</div>
-    <?php endwhile; ?>
-    </div>
-</div>
+        <?php
+        $iRes = $conn->query("SELECT card_name, quantity FROM inventory WHERE user_id=$user_id ORDER BY card_name LIMIT 5");
+        while ($i = $iRes->fetch_assoc()):
+        ?>
+        <div class="entry"><?php echo htmlspecialchars($i['card_name']); ?> (x<?php echo intval($i['quantity']); ?>)</div>
+        <?php endwhile; ?>
+        </div>
+    </div>-->
 
 
 
