@@ -72,11 +72,11 @@
     if($('#assignModal')) return $('#assignModal');
     const overlay = document.createElement('div');
     overlay.id='assignModal';
-    overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:9999;';
+    overlay.style.cssText='position:fixed;inset:0;background:rgba(0, 0, 0, 0.6);display:none;align-items:center;justify-content:center;z-index:9999;';
     const panel = document.createElement('div');
     panel.style.cssText='background:#fff;color:#000;padding:16px;min-width:320px;max-width:90%;border:1px solid #444;';
-    panel.innerHTML = '<h3 id="am-title" style="margin-top:0">Assign to deck</h3>\
-      <div style="display:flex;gap:8px;align-items:center;margin:8px 0">\
+    panel.innerHTML = '<link rel="stylesheet" href="../css/searchcard.css"><h3 id="am-title" style="margin-top:0">Assign to deck</h3>\
+      <div style="display:flex;gap:8px;align-items:center;margin:20px 0">\
         <img id="am-img" alt="" style="width:64px;height:auto;display:none;border:1px solid #ccc">\
         <div>\
           <div id="am-name" style="font-weight:600"></div>\
@@ -89,7 +89,7 @@
       <div style="margin:6px 0">\
         <label>Quantity:&nbsp;<input id="am-qty" type="number" min="1" value="1" style="width:80px"></label>\
       </div>\
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">\
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:3px">\
         <button id="am-cancel">Cancel</button>\
         <button id="am-confirm">Assign</button>\
       </div>';
@@ -120,7 +120,7 @@
     decks.forEach(d=>{ const o=document.createElement('option'); o.value=d.id; o.textContent=d.name; deckSel.appendChild(o); });
 
     // image
-    imgEl.style.display='none';
+    imgEl.style.display='';
     resolveImage(rowData.name).then(src=>{
       if(src){ imgEl.src=src; imgEl.style.display='block'; }
     });

@@ -36,6 +36,10 @@ h2 {
   width: 300px;      
  }
 
+.nav {
+  color: white;
+}
+
 
 /*----------------------------------------------------------------------
 
@@ -51,7 +55,9 @@ h2 {
   width: 50%;
   height: auto;
   object-fit: contain;
+
 }
+
 
 .sec2 {
   text-align: center;
@@ -73,6 +79,7 @@ p {
   gap: 20px;
   padding: 20px;
   background-color: #1a1a1a;
+  margin: auto;
 }
 
 .inline-block {
@@ -87,15 +94,17 @@ p {
   text-align: center;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-left: 350px;
+  margin: auto;
 }
 
 .inline-block img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
   
 }
+
+
 
 .homeDecksBtn {
       margin-top: 20px !important;
@@ -133,9 +142,26 @@ p {
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  padding: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0px;
+  box-shadow: 0 0px 15px silver;
   box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.inline-block-friends-gold {
+  max-width: 200px;
+  max-height: 200px;
+  margin: auto;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  padding: 0px;
+  box-shadow: 0px 0px 15px gold;
+  box-sizing: border-box;
+  border-color: gold;
+  border-radius: 50%;
 }
 
 .inline-block-friends img {
@@ -145,6 +171,36 @@ p {
   border-radius: 50%;
   
 }
+
+.inline-block-friends-gold img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+
+.usernames {
+  color: rgb(235, 91, 8);
+} 
+
+.crown {
+  display: block;
+  width: 90px;
+  margin:auto;
+}
+
+.collector-rating {
+  color: blueviolet;
+  padding-bottom: 70px;
+}
+
+.collector-rating-silver {
+  color: silver;
+  padding-bottom: 50px;
+}
+
 
 .homeFriendsBtn {
   margin-top: 20px !important;
@@ -204,3 +260,4 @@ p {
   padding-bottom: 50px;
   margin: auto;
 }
+

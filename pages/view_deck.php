@@ -24,6 +24,7 @@ if(!$ok){ header('Location: inventory.php'); exit; }
 ?>
 <!doctype html>
 <html>
+    <link rel="stylesheet" href="../css/inventory.css">
 <head>
 <meta charset="utf-8">
 <title>View Deck</title>

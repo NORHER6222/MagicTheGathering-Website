@@ -14,13 +14,13 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
     <title>Home</title>
     <link rel="stylesheet" href="../css/home.css">
     <style>
-        .box-section { margin:10px 0; padding:10px; background: black; border:1px solid #e8e8e8ff; color: white;}
+        .box-section { width: 30%; margin:auto; padding:10px; background: black; border:1px solid #e8e8e8ff; color: white;}
         .entry { padding:6px; border-bottom:1px solid #a34b1bff; }
         .entry a { text-decoration:none; color:white; }
     </style>
 </head>
 <body>
-<?php include '../includes/nav.php'; ?>
+<div class="nav"><?php include '../includes/nav.php'; ?></div>
 
 <div>
     <a href="home.php"><img class="logo" src="../img/mtgmanager.png" alt=""></a>
@@ -76,21 +76,30 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
 
 
 <section class="homeDecks">
-
+        
         <div class="inline-block">
-            <img src="../img/angelCom.png" alt="">
+        <figure> <img src="../img/angelCom.png" alt=""><figcaption>Angel Commander Deck: "Celestial Vanguard"</figcaption> </figure>
+        </div>
+        
+
+        <div class="inline-block">    
+        <figure> <img src="../img/deck2.png" alt=""><figcaption>Wolf Commander Deck: "Savage Inferno"</figcaption> </figure>
         </div>
 
         <div class="inline-block">    
-            <img src="../img/deck2.png" alt="">
-        </div>
-
-        <div class="inline-block">    
-            <img src="../img/deck3.png" alt="">
+        <figure> <img src="../img/deck3.png" alt=""><figcaption>Dragon Commander Deck: "Draconic Dominion"</figcaption> </figure>
         </div>
 
         <div class="inline-block">
-            <img src="../img/deck4.png" alt="">
+        <figure> <img src="../img/deck4.png" alt=""><figcaption>Warrior Commander Deck: "Highland Legion"</figcaption> </figure>
+        </div>
+
+        <div class="inline-block">
+        <figure> <img src="../img/deck5.png" alt=""><figcaption>Dark Necromancer Deck: "Shadowed Resurrection"</figcaption> </figure>
+        </div>
+
+        <div class="inline-block">
+        <figure> <img src="../img/deck6.png" alt=""><figcaption>Amonkhet Deck: "Pharaoh's Eternal Glory"</figcaption> </figure>
         </div>
 
         
@@ -102,37 +111,40 @@ $user_id = $conn->query("SELECT id FROM users WHERE username='$username'")->fetc
             
         <p>Explore the community's top collectors or friends near you!</p><br><br>
 
-        <div class="inline-block-friends">
-            <img src="../img/favatars/01.png" alt="">
-        </div>
+         <div><img class="crown" src="../img/crown.png" alt=""></div>
+            <p class="usernames">KevTheCollector</p>
+        <div class="inline-block-friends-gold">
+        <img src="../img/favatars/01.png" alt="">
+        </div> 
+           <p class="collector-rating">TOP COLLECTOR</p>
         
-        <div class="inline-block-friends">
+        <div><img class="crown" src="../img/crown.png" alt=""></div>
+            <p class="usernames">NHG</p>
+        <div class="inline-block-friends-gold">
             <img src="../img/favatars/02.png" alt="">
         </div>
+            <p class="collector-rating">TOP EDITOR</p>
 
-        <div class="inline-block-friends">
+        <div><img class="crown" src="../img/crown.png" alt=""></div>
+            <p class="usernames">JasonStrategies</p>
+        <div class="inline-block-friends-gold">
             <img src="../img/favatars/03.png" alt="">
         </div>
+            <p class="collector-rating">TOP PLAYER</p>
 
-        <div class="inline-block-friends">
-            <img src="../img/favatars/1.png" alt="">
-        </div>
-
-        <div class="inline-block-friends">    
-            <img src="../img/favatars/2.png" alt="">
-        </div>
-
+            <p class="usernames">RBELLETGAMES</p>
         <div class="inline-block-friends">    
             <img src="../img/favatars/3.png" alt="">
         </div>
+            <p class="collector-rating-silver">PLAYER</p>
 
+            <p class="usernames">ABBY</p>
         <div class="inline-block-friends">
             <img src="../img/favatars/4.png" alt="">
         </div>
+            <p class="collector-rating-silver">COLLECTOR</p>
 
-        <div class="inline-block-friends">
-            <img src="../img/favatars/5.png" alt="">
-        </div>
+
 
         
 </section>

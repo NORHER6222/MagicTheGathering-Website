@@ -19,7 +19,7 @@
     const row1 = h('div', { style:'display:flex;flex-wrap:wrap;gap:8px;align-items:center' });
 
     const typeSel = h('select', { id:'sfType' },
-      h('option', { value:'' }, 'Any type'),
+      h('option', { value:'' }, 'Any Type'),
       ...['creature','instant','sorcery','artifact','enchantment','planeswalker','land']
         .map(o=>h('option', { value:o }, o))
     );
@@ -32,7 +32,7 @@
       h('option', { value:'c' }, 'Colorless')
     );
     const raritySel = h('select', { id:'sfRarity' },
-      h('option', { value:'' }, 'Any rarity'),
+      h('option', { value:'' }, 'Any Rarity'),
       ...['common','uncommon','rare','mythic'].map(o=>h('option', { value:o }, o))
     );
     const yearInput = h('input', { id:'sfYear', type:'number', min:'1993', max:'2099', placeholder:'Year' });

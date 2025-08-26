@@ -23,7 +23,7 @@ require '../includes/auth.php';
 
 
 <h1>Help & Documentation</h1>
-<p>Welcome to the Magic: The Gathering Collection Manager. Here’s how to use the features:</p>
+<p class="welcome">Welcome to the Magic: The Gathering Collection Manager. Here’s how to use the features:</p>
 <div id="featuresbox">
 <ul>
     <li><strong>Home:</strong> Quick dashboard showing your first 5 friends and first 5 cards.</li>
@@ -38,4 +38,12 @@ require '../includes/auth.php';
 </ul>
 </div>
 </body>
+
+<footer>
+    <section class="footer">
+       <h4 class="sec2"></h4>
+       <p class="footnotes">Wizards of the Coast, Magic: The Gathering, and their logos are trademarks of Wizards of the Coast LLC in the United States and other countries. © 1993-2025 Wizards. All Rights Reserved.<br><br>MTG MANAGER is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC. MTG MANAGER may use the trademarks and other intellectual property of Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy. MAGIC: THE GATHERING® is a trademark of Wizards of the Coast. For more information about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please visit their website at https://company.wizards.com/.<br><br>© 2025 MTG MANAGER·Terms of Service·Privacy Policy·Affiliate Disclosures·Version 2025.v01</p>
+    </section>
+</footer>
+
 </html>
