@@ -41,4 +41,17 @@ This is a PHP/MySQL web application to manage Magic: The Gathering card collecti
 - **Friends** – Add friends and view their inventories.  
 - **Profile** – Choose an avatar. Avatars also display on the navigation bar and friends list.  
 - **Help** – Usage instructions.  
-- **Login/Register** – Simple accounts with plaintext passwords.  
+- **Login/Register** – Simple accounts with plaintext passwords.
+
+## Notes
+- Ensure all dependencies are installed using `npm install` before running the
+application.
+-Dependency #1 -- XAMPP
+
+## Link to Project
+(https://github.com/NORHER6222/MagicTheGathering-Website/tree/main)
+## License
+This project is licensed under the GNU License - see the [LICENSE](LICENSE) file
+for details.
+
+
