@@ -11,12 +11,44 @@ html {
   color: black;
 }
 
-div {
-  color: aliceblue;
+#sfFree {
+  width: 100px !important;
 }
+
+
+#scryfall-filters {
+  display: block;
+  color: rgb(231, 95, 27);
+  margin: 100px !important;
+}
+
 
 a {
   color: rgb(255, 255, 255);
   font-weight: bold;
+}
+
+.result-row {
+  color: white;
+  display: block;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 0;
+  position: relative; 
+}
+
+.result-row:not(:last-child)::after {
+  content: '---------------------------------------------------------------------------------';
+  display: block;
+  text-align: center;
+  color: #666;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.result-row img:hover {
+  transform: scale(2.0);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 5px solid #333;
 }
 

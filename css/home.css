@@ -12,6 +12,39 @@ html {
   text-align: center;
 }
 
+.welc {
+  padding-top: 60px;
+  color: white;
+  text-align: center;
+  font-size: 70px;
+  font-family: copperplate;
+}
+
+
+.KNJ {
+  position: relative;
+  color: blueviolet; 
+  font-size: 35px;
+  animation: pulse2 5s ease-in-out infinite;
+  transition: transform 0.5s ease;
+  display: inline-block;
+}
+
+@keyframes pulse2 {
+  0% { transform: scale(0.75); }
+  10% { transform: scale(1.0); }
+  50% { transform: scale(1.0); }
+  100% { transform: scale(0.75); }
+}
+
+
+
+.powered {
+  font-size: 20px;
+  text-align: center;
+  text-decoration:solid;
+}
+
 h2 {
   color: rgb(255, 204, 102);
   text-align: center;
@@ -48,7 +81,7 @@ h2 {
 -------------------------------------------------------------------------*/
 
 .magicLogo img{
-  padding-top: 600px;
+  padding-top: 800px;
    display: block;
   margin-left: auto;
   margin-right: auto;
@@ -104,7 +137,16 @@ p {
   
 }
 
+.inline-block img:hover {
+  transform: scale(1.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 5px solid #333;
+}
 
+
+.highlightedFont {
+  color: blueviolet;
+}
 
 .homeDecksBtn {
       margin-top: 20px !important;
@@ -131,6 +173,7 @@ p {
   background-color: #1a1a1a;
   
 }
+
 
 
 .inline-block-friends {
@@ -169,7 +212,11 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
 }
 
 .inline-block-friends-gold img {
@@ -177,6 +224,8 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 

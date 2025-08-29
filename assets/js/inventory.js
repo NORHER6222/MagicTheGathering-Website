@@ -58,7 +58,7 @@
     const e = encodeURIComponent(cardName);
     const urlExact = `https://api.scryfall.com/cards/named?exact=${e}`;
     return fetch(urlExact).then(r=>r.json()).then(j=>{
-      let src = (j.image_uris && (j.image_uris.small || j.image_uris.normal)) || null;
+      let src = (j.image_uris && (j.image_uris.normal || j.image_uris.normal)) || null;
       if(!src && j.card_faces && j.card_faces.length){
         const f = j.card_faces[0];
         src = f.image_uris && (f.image_uris.small || f.image_uris.normal);
@@ -75,7 +75,7 @@
     overlay.style.cssText='position:fixed;inset:0;background:rgba(0, 0, 0, 0.6);display:none;align-items:center;justify-content:center;z-index:9999;';
     const panel = document.createElement('div');
     panel.style.cssText='background:#fff;color:#000;padding:16px;min-width:320px;max-width:90%;border:1px solid #444;';
-    panel.innerHTML = '<link rel="stylesheet" href="../css/searchcard.css"><h3 id="am-title" style="margin-top:0">Assign to deck</h3>\
+    panel.innerHTML = '<link rel="stylesheet" href="../css/inventory.css"><h3 id="am-title" style="margin-top:0">Assign to deck</h3>\
       <div style="display:flex;gap:8px;align-items:center;margin:20px 0">\
         <img id="am-img" alt="" style="width:64px;height:auto;display:none;border:1px solid #ccc">\
         <div>\
@@ -164,7 +164,7 @@
       const cName = document.createElement('td');
       const wrap = document.createElement('div');
       wrap.style.display='flex'; wrap.style.alignItems='center'; wrap.style.gap='8px';
-      const img = document.createElement('img'); img.alt=''; img.style.width='40px'; img.style.height='auto'; img.style.border='1px solid #333'; img.style.display='none';
+      const img = document.createElement('img'); img.alt=''; img.style.width='80px'; img.style.height='auto'; img.style.border='1px solid #333'; img.style.display='none';
       resolveImage(name).then(src=>{ if(src){ img.src=src; img.style.display='block'; }});
       const title = document.createElement('span'); title.textContent = name;
       const totalSpan = document.createElement('span'); totalSpan.setAttribute('data-onhand', String(id));

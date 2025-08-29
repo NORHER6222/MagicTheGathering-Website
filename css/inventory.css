@@ -1,5 +1,5 @@
 html {
-  background-image: url('../img/inventoryback.png');
+  background-color: black;
   background-size: cover;
   text-align: center;
 }
@@ -28,8 +28,12 @@ h2 {
   gap: 10px;            
  }
 
- th, tbody, tr {
-  color: white;
+th {
+  color: rgb(255, 204, 102);
+}
+ 
+tr {
+  color: violet;
  }
 
 .logo {
@@ -65,3 +69,17 @@ a {
   color: rgb(255, 255, 255);
   font-weight: bold;
 }
+
+td img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  image-rendering:optimizeQuality;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 5px solid #333;
+}
+
+td img:hover {
+  transform: scale(5.0);
+}
+
